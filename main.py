@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from ml_utils import load_model, predict
+from datetime import datetime
 
 app = FastAPI(
     title="Iris Predictor",
@@ -22,8 +23,11 @@ class QueryOut(BaseModel):
 
 @app.get("/ping")
 def ping():
-    return {"ping": "pong"}
+    return {"ping": "pong" ,"timestamp": datetime.now().strftime("%m/%D/%Y, %h:%m:%S")}
 
+@app.get("/gotcha")
+def gotcha():
+    return {"gotcha": "hello there" ,"timestamp": datetime.now().strftime("%m/%D/%Y, %h:%m:%S")}
 
 @app.post("/predict_flower", response_model=QueryOut, status_code=200)
 def predict_flower(

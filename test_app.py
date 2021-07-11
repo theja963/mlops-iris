@@ -19,3 +19,9 @@ def test_pred_virginica():
         response = client.post('/predict_flower', json=payload)
         assert response.status_code == 200
         assert response.json() == {'flower_class': "Iris Virginica"}
+
+def test_gotcha():
+  with TestClient(app) as client:
+      response = client.get("/gotcha")
+      assert response.status_code == 200
+      assert response.json() == {"gotcha":"hello there"}
