@@ -22,7 +22,7 @@ def load_model():
 
 	acc[0] = accuracy_score(y_test, clf[0].predict(X_test))
 	acc[1] = accuracy_score(y_test, clf[1].predict(X_test))
-	print(f"Model trained with accuracy: {round(acc[acc.index(min(acc))], 3)} \n in comparision to accuracy: {round(acc[acc.index(min(acc))], 3)}")
+	print(f"Model trained with accuracy: {round(acc[acc.index(max(acc))], 3)} \n in comparision to accuracy: {round(acc[acc.index(min(acc))], 3)}")
 
 def predict(query_data):
 	x = list(query_data.dict().values())

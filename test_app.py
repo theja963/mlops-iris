@@ -28,6 +28,6 @@ def test_gotcha():
 
 def test_terminate():
   with TestClient(app) as client:
-      response = client.get("/gotcha")
+      response = client.get("/terminate")
       assert response.status_code == 200
       assert response.json() == {"Terminate":"Task Terminated"}

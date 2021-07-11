@@ -27,7 +27,11 @@ def ping():
 
 @app.get("/gotcha")
 def gotcha():
-    return {"gotcha": "hello there" ,"timestamp": datetime.now().strftime("%m/%D/%Y, %h:%m:%S")}
+    return {"gotcha": "Hello There"}
+
+@app.get("/terminate")
+def terminate():
+    return {"Terminate":"Task Terminated"}
 
 @app.post("/predict_flower", response_model=QueryOut, status_code=200)
 def predict_flower(
